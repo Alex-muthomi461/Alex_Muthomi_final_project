@@ -1,16 +1,16 @@
-// script.js
+
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Smooth scroll behavior (CSS fallback)
+  
   document.documentElement.style.scrollBehavior = 'smooth';
 
-  // 2. Highlight active nav link on scroll
+  
   const sections = document.querySelectorAll('main.page-section');
   const navLinks = document.querySelectorAll('.nav-link');
 
   function activateNavLinkOnScroll() {
     let scrollPos = window.scrollY || window.pageYOffset;
-    let offset = 120; // adjust if you have a fixed header
+    let offset = 120; 
 
     sections.forEach(section => {
       const top = section.offsetTop - offset;
@@ -26,9 +26,9 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.addEventListener('scroll', activateNavLinkOnScroll);
-  activateNavLinkOnScroll(); // run on page load
+  activateNavLinkOnScroll(); 
 
-  // 3. Optional: Smooth scroll for browsers that don't support CSS scroll-behavior
+  
   navLinks.forEach(link => {
     link.addEventListener('click', function(e) {
       const href = this.getAttribute('href');
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (target) {
           e.preventDefault();
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // Optionally, set focus for accessibility
+          
           target.setAttribute('tabindex', '-1');
           target.focus();
         }
@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. FAQ Accordion
+  
   document.querySelectorAll('.faq-question').forEach(btn => {
     btn.addEventListener('click', function () {
       const item = this.closest('.faq-item');
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 5. Contact Form Handling
+  
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', async e => {
